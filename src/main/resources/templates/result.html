@@ -1,6 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <h1>Hello, <span th:text="${userloggedin}"></span>! </h1>
+    <title>Coquette Greeting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffeef4;
+            font-family: 'Dancing Script', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png');
+            position: relative;
+            overflow: hidden;
+        }
+
+        .greeting-box {
+            background-color: #fff7fa;
+            border: 2px dotted #f9d7e5;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 6px 15px rgba(240,182,195,0.4);
+            text-align: center;
+            max-width: 400px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #e38da7;
+            margin-bottom: 10px;
+        }
+
+        span {
+            color: #d37891;
+        }
+
+        .bow {
+            font-size: 40px;
+            position: absolute;
+            z-index: 0;
+        }
+
+        .bow.tl { top: 15px; left: 15px; transform: rotate(-15deg); }
+        .bow.tr { top: 15px; right: 15px; transform: rotate(15deg); }
+        .bow.bl { bottom: 15px; left: 15px; transform: rotate(10deg); }
+        .bow.br { bottom: 15px; right: 15px; transform: rotate(-10deg); }
+    </style>
+</head>
+<body>
+    <!-- Decorative bows as emojis -->
+    <div class="bow tl">🎀</div>
+    <div class="bow tr">🎀</div>
+    <div class="bow bl">🎀</div>
+    <div class="bow br">🎀</div>
+
+    <div class="greeting-box">
+        <h1>Hello, <span th:text="${userloggedin}">Lovely</span>!</h1>
+    </div>
 </body>
 </html>
