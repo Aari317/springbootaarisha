@@ -79,8 +79,12 @@
             const sparkle = document.createElement('div');
             sparkle.classList.add('sparkle');
             sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
-            sparkle.style.left = `${e.pageX}px`;
-            sparkle.style.top = `${e.pageY}px`;
+            const offset = 30; 
+            const randomX = Math.floor(Math.random() * (offset * 2)) - offset;
+            const randomY = Math.floor(Math.random() * (offset * 2)) - offset;
+
+            sparkle.style.left = `${e.pageX + randomX}px`;
+            sparkle.style.top = `${e.pageY + randomY}px`;
 
             document.body.appendChild(sparkle);
 
