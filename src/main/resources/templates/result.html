@@ -40,27 +40,54 @@
             color: #d37891;
         }
 
-        .bow {
-            font-size: 40px;
+        /* Sparkles */
+        .sparkle {
             position: absolute;
-            z-index: 0;
+            font-size: 18px;
+            pointer-events: none;
+            animation: sparkle-fade 1.5s ease-out forwards;
+            z-index: 2;
         }
 
-        .bow.tl { top: 15px; left: 15px; transform: rotate(-15deg); }
-        .bow.tr { top: 15px; right: 15px; transform: rotate(15deg); }
-        .bow.bl { bottom: 15px; left: 15px; transform: rotate(10deg); }
-        .bow.br { bottom: 15px; right: 15px; transform: rotate(-10deg); }
+        @keyframes sparkle-fade {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2) translateY(-5px);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.8) translateY(-10px);
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Decorative bows as emojis -->
-    <div class="bow tl">🎀</div>
-    <div class="bow tr">🎀</div>
-    <div class="bow bl">🎀</div>
-    <div class="bow br">🎀</div>
-
     <div class="greeting-box">
         <h1>Hello, <span th:text="${userloggedin}">Lovely</span>!</h1>
+        <h1>Last Name, <span th:text="${userInput2}"></span>!</h1>
+        <h4>Email: <span th:text="${userEmail}"></span>!</h4>
     </div>
+
+    <script>
+        const sparkles = ['✨', '🎀', '💕', '🌸', '🎧', '🫧', '💌'];
+
+        document.addEventListener('mousemove', function (e) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+            sparkle.style.left = `${e.pageX}px`;
+            sparkle.style.top = `${e.pageY}px`;
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1500);
+        });
+    </script>
 </body>
 </html>

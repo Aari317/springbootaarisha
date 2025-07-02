@@ -15,9 +15,13 @@ public class HelloController {
 
   
     @PostMapping("/greet")
-    public String greet(String username, Model model) {
+    public String greet(String username, String lastname, String email, Model model) {
         model.addAttribute("userloggedin", username);
+        model.addAttribute("userInput2", lastname);
+        model.addAttribute("userEmail", email);
         System.out.println("username: " + username );
+        System.out.println("lastname: " + lastname );
+        System.out.println("email: " + email);
         return "result";
     }
 }

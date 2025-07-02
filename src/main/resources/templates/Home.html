@@ -11,7 +11,7 @@
             height: 100vh;
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
-            background-color: #fcedf9;
+            background-color: #fff7f6;
             margin: 0;
         }
         input, button {
@@ -31,7 +31,9 @@
     <h3>Welcome to Aarisha's site!</h3>
     <h1>Enter your name:</h1>
     <form action="/greet" method="post">
-        <input type="text" name="username" placeholder="Your name here" required>
+        <input type = "text" name = "username" placeholder = "Your name here" required>
+        <input type = "text" name = "lastname" placeholder = "Last name" required>
+        <input type = "text" name = "email" placeholder = "Email please" required>
         <button type="submit">Greet Me</button>
     </form>
 </body>
